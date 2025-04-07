@@ -1,0 +1,518 @@
+<div class="container my-4 p-4 shadow rounded bg-light">
+  <h1 class="text-center mb-2 heading">Bank Application</h1>
+  <form [formGroup]="loanAppForm">
+    <div class="row">
+      <div class="col-12">
+        <div class="card">
+          <div class="card-body">
+            <div class="row mb-3">
+              <div class="col-md-6">
+                <label for="fullName" class="form-label heading"
+                  >Full Name:</label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  id="fullName"
+                  name="fullName"
+                  placeholder="Enter your full name"
+                  formControlName="fullName"
+                  [class]="
+                    loanAppForm.get('fullName')?.invalid &&
+                    loanAppForm.get('fullName')?.touched
+                      ? 'is-invalid'
+                      : ''
+                  "
+                />
+                @if (loanAppForm.get('fullName')?.invalid &&
+                loanAppForm.get('fullName')?.touched) {
+                <div class="text-danger">
+                  @if (loanAppForm.controls['fullName'].errors?.['required']) {
+                  <span>*Full Name is a required field!</span>
+                  } @if (loanAppForm.controls['fullName'].errors?.['minlength'])
+                  {
+                  <span>*Enter minimum of 3 characters</span>
+                  }
+                </div>
+
+                }
+              </div>
+            </div>
+
+            <div class="row mb-3">
+              <div class="col-md-4">
+                <label for="email" class="form-label heading">Email:</label>
+                <input
+                  type="email"
+                  class="form-control"
+                  placeholder="Enter you email address"
+                  id="email"
+                  name="email"
+                  formControlName="email"
+                  [class]="
+                    loanAppForm.get('email')?.invalid &&
+                    loanAppForm.get('email')?.touched
+                      ? 'is-invalid'
+                      : ''
+                  "
+                />
+                @if (loanAppForm.get('email')?.invalid &&
+                loanAppForm.get('email')?.touched) {
+                <div class="text-danger">
+                  @if (loanAppForm.controls['email'].errors?.['required']) {
+                  <span>*Email is a required field!</span>
+                  } @if (loanAppForm.controls['email'].errors?.['email']) {
+                  <span>*Provide a valid email address!</span>
+                  }
+                </div>
+                }
+              </div>
+              <div class="col-md-4">
+                <label for="phone" class="form-label heading"
+                  >Phone Number:</label
+                >
+                <input
+                  type="tel"
+                  class="form-control"
+                  placeholder="Enter your phone number"
+                  id="phone"
+                  name="phone"
+                  formControlName="phone"
+                  [class]="
+                    loanAppForm.get('phone')?.invalid &&
+                    loanAppForm.get('phone')?.touched
+                      ? 'is-invalid'
+                      : ''
+                  "
+                />
+                @if (loanAppForm.get('phone')?.invalid &&
+                loanAppForm.get('phone')?.touched) {
+                <div class="text-danger">
+                  @if(loanAppForm.controls['phone'].errors?.['required']){
+                  <span>*Phone number is required field!</span>
+                  } @if (loanAppForm.controls['phone'].errors?.['pattern']) {
+                  <span>*Provide a valid phone number!</span>
+                  }
+                </div>
+
+                }
+              </div>
+              <div class="col-md-4">
+                <label for="dob" class="form-label heading"
+                  >Date of Birth:</label
+                >
+                <input
+                  type="date"
+                  class="form-control"
+                  id="dob"
+                  name="dob"
+                  formControlName="dateOfBirth"
+                  [class]="
+                    loanAppForm.get('dateOfBirth')?.invalid &&
+                    loanAppForm.get('dateOfBirth')?.touched
+                      ? 'is-invalid'
+                      : ''
+                  "
+                />
+                @if (loanAppForm.get('dateOfBirth')?.invalid &&
+                loanAppForm.get('dateOfBirth')?.touched) {
+                <div class="text-danger">
+                  @if (loanAppForm.controls['dateOfBirth'].errors?.['required'])
+                  {
+                  <span>Date of Birth is a required field!</span>
+                  }
+                </div>
+                }
+              </div>
+            </div>
+
+            <div class="row mb-3">
+              <div class="col-md-4">
+                <label for="dob" class="form-label heading">PAN Card:</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="Enter you PAN card number"
+                  id="panCard"
+                  name="panCard"
+                  formControlName="panCard"
+                  [class]="
+                    loanAppForm.get('panCard')?.invalid &&
+                    loanAppForm.get('panCard')?.touched
+                      ? 'is-invalid'
+                      : ''
+                  "
+                />
+                @if (loanAppForm.get('panCard')?.invalid &&
+                loanAppForm.get('panCard')?.touched) {
+                <div class="text-danger">
+                  @if (loanAppForm.controls['panCard'].errors?.['required']) {
+                  <span>*PAN Card Number is required field!</span>
+                  } @if (loanAppForm.controls['panCard'].errors?.['pattern']) {
+                  <span>*Provide a valid PAN card number!</span>
+                  }
+                </div>
+                }
+              </div>
+              <div class="col-md-4">
+                <label for="income" class="form-label heading"
+                  >Annual Income:</label
+                >
+                <input
+                  type="number"
+                  class="form-control"
+                  placeholder="Enter your annual income"
+                  id="income"
+                  name="income"
+                  formControlName="annualIncome"
+                  [class]="
+                    loanAppForm.get('annualIncome')?.invalid &&
+                    loanAppForm.get('annualIncome')?.touched
+                      ? 'is-invalid'
+                      : ''
+                  "
+                />
+                @if (loanAppForm.get('annualIncome')?.invalid &&
+                loanAppForm.get('annualIncome')?.touched) {
+                <div class="text-danger">
+                  @if
+                  (loanAppForm.controls['annualIncome'].errors?.['required']) {
+                  <span>*Annual Income is a required field!</span>
+                  } @if (loanAppForm.controls['annualIncome'].errors?.['min']) {
+                  <span>*Your annual income must be minimum of 10,000!</span>
+                  }
+                </div>
+                }
+              </div>
+              <div class="col-md-4">
+                <label for="employmentStatus" class="form-label heading"
+                  >Employment Status:</label
+                >
+                <select
+                  id="employmentStatus"
+                  name="employmentStatus"
+                  class="form-select"
+                  formControlName="employmentStatus"
+                  [class]="
+                    loanAppForm.get('employmentStatus')?.invalid &&
+                    loanAppForm.get('employmentStatus')?.touched
+                      ? 'is-invalid'
+                      : ''
+                  "
+                >
+                  <option value="">Select your employment status</option>
+                  <option value="employed">Employed</option>
+                  <option value="self-employed">Self-Employed</option>
+                  <option value="unemployed">Unemployed</option>
+                  <option value="retired">Retired</option>
+                </select>
+                @if (loanAppForm.get('employmentStatus')?.invalid &&
+                loanAppForm.get('employmentStatus')?.touched) {
+                <div class="text-danger">
+                  @if
+                  (loanAppForm.controls['employmentStatus'].errors?.['required'])
+                  {
+                  <span>*Employment Status is a required field!</span>
+                  }
+                </div>
+                }
+              </div>
+            </div>
+
+            <div class="row mb-3">
+              <!-- <div class="col-md-4">
+                <label for="appStatus" class="form-label heading"
+                  >Application Status:</label
+                >
+                <select
+                  name="appStatus"
+                  id="appStatus"
+                  class="form-select"
+                  formControlName="applicationStatus"
+                >
+                  <option selected disabled>Select Status</option>
+                </select>
+              </div> -->
+              <div class="col-md-4">
+                <label for="creditScore" class="form-label heading"
+                  >Credit Score:</label
+                >
+                <input
+                  type="number"
+                  class="form-control"
+                  id="creditScore"
+                  name="creditScore"
+                  formControlName="creditScore"
+                  [class]="
+                    loanAppForm.get('creditScore')?.invalid &&
+                    loanAppForm.get('creditScore')?.touched
+                      ? 'is-invalid'
+                      : ''
+                  "
+                />
+                @if (loanAppForm.get('creditScore')?.invalid &&
+                loanAppForm.get('creditScore')?.touched) {
+                <div class="text-danger">
+                  @if(loanAppForm.controls['creditScore'].errors?.['required']){
+                  <span>*Credit Score is a required field!</span>
+                  } @if (loanAppForm.controls['creditScore'].errors?.['min']) {
+                  <span>*Your credit score must be minimum of 300!</span>
+                  } @if (loanAppForm.controls['creditScore'].errors?.['max']) {
+                  <span>*Your credit score must be maximum of 850!</span>
+                  }
+                </div>
+                }
+              </div>
+              <div class="col-md-4">
+                <label for="assets" class="form-label heading">Assets:</label>
+                <textarea
+                  name="assets"
+                  id="assets"
+                  class="form-control"
+                  placeholder="Describe your assets"
+                  formControlName="assets"
+                  [class]="
+                    loanAppForm.get('assets')?.invalid &&
+                    loanAppForm.get('assets')?.touched
+                      ? 'is-invalid'
+                      : ''
+                  "
+                ></textarea>
+                @if (loanAppForm.get('assets')?.invalid &&
+                loanAppForm.get('assets')?.touched) {
+                <div class="text-danger">
+                  @if (loanAppForm.controls['assets'].errors?.['required']) {
+                  <span>*Assets is a required field!</span>
+                  }
+                </div>
+                }
+              </div>
+            </div>
+
+            <hr />
+
+            <h2 class="my-2 heading">Address Details</h2>
+            <div class="row mb-3">
+              <div class="col-md-4">
+                <label for="city" class="form-label heading">City:</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="Enter your city"
+                  id="city"
+                  name="city"
+                  formControlName="city"
+                  [class]="
+                    loanAppForm.get('city')?.invalid &&
+                    loanAppForm.get('city')?.touched
+                      ? 'is-invalid'
+                      : ''
+                  "
+                />
+                @if (loanAppForm.get('city')?.invalid &&
+                loanAppForm.get('city')?.touched) {
+                <div class="text-danger">
+                  @if (loanAppForm.controls['city'].errors?.['required']) {
+                  <span>*City is a required field!</span>
+                  }
+                </div>
+                }
+              </div>
+              <div class="col-md-4">
+                <label for="state" class="form-label heading">State:</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="Enter your state"
+                  id="state"
+                  name="state"
+                  formControlName="state"
+                  [class]="
+                    loanAppForm.get('state')?.invalid &&
+                    loanAppForm.get('state')?.touched
+                      ? 'is-invalid'
+                      : ''
+                  "
+                />
+                @if(loanAppForm.get('state')?.invalid &&
+                loanAppForm.get('state')?.touched){
+                <div class="text-danger">
+                  @if (loanAppForm.controls['state'].errors?.['required']) {
+                  <span>State is a required field!</span>
+                  }
+                </div>
+                }
+              </div>
+              <div class="col-md-4">
+                <label for="zipCode" class="form-label heading"
+                  >Zip Code:</label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="Enter your zip code"
+                  id="zipCode"
+                  name="zipCode"
+                  formControlName="zipCode"
+                  [class]="
+                    loanAppForm.get('zipCode')?.invalid &&
+                    loanAppForm.get('zipCode')?.touched
+                      ? 'is-invalid'
+                      : ''
+                  "
+                />
+                @if (loanAppForm.get('zipCode')?.invalid &&
+                loanAppForm.get('zipCode')?.touched) {
+                <div class="text-danger">
+                  @if (loanAppForm.controls['zipCode'].errors?.['required']) {
+                  <span>*Zip code is a required field!</span>
+                  } @if (loanAppForm.controls['zipCode'].errors?.['pattern']) {
+                  <span>*Provide a valid zip code!</span>
+                  }
+                </div>
+                }
+              </div>
+            </div>
+
+            <div class="row mb-3">
+              <div class="col-md-6">
+                <label for="address" class="form-label heading">Address:</label>
+                <textarea
+                  class="form-control"
+                  placeholder="Enter your address"
+                  formControlName="address"
+                  [class]="
+                    loanAppForm.get('address')?.invalid &&
+                    loanAppForm.get('address')?.touched
+                      ? 'is-invalid'
+                      : ''
+                  "
+                ></textarea>
+                @if (loanAppForm.get('address')?.invalid &&
+                loanAppForm.get('address')?.touched) { @if
+                (loanAppForm.controls['address'].errors?.['required']) {
+                <span>*Address is a required field!</span>
+                } }
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <hr />
+
+    <!-- <h2 class="heading">Loan Details</h2> -->
+    <div class="mb-4" formArrayName="loans">
+      <div class="row">
+        <div class="col-4">
+          <h4 class="mb-3 heading">Add Loan Details</h4>
+        </div>
+        <div class="col-3 text-end">
+          <button type="button" class="btn addmore" (click)="addNewLoan()">
+            Add More
+          </button>
+        </div>
+      </div>
+      <div class="row g-3">
+        <div class="col-md-7">
+          <div
+            class="row g-3"
+            *ngFor="let item of loanList.controls; let i = index"
+            [formGroupName]="i"
+          >
+            <div class="col-md-3">
+              <label for="bankName" class="form-label heading"
+                >Bank Name:</label
+              >
+              <input
+                type="text"
+                class="form-control border-2 shadow-sm"
+                placeholder="Enter bank name"
+                id="bankName"
+                name="bankName"
+                formControlName="bankName"
+                [class]="
+                  loanAppForm.get('loans[0].bankName')?.invalid &&
+                  loanAppForm.get('loans[0].bankName')?.touched
+                    ? 'is-invalid'
+                    : ''
+                "
+              />
+              @if (loanAppForm.get('loans[0].bankName')?.invalid &&
+              loanAppForm.get('loans[0].bankName')?.touched) {
+              <div class="text-danger">
+                @if
+                (loanAppForm.controls['loans[0].bankName'].errors?.['required'])
+                {
+                <span>*Bank name is a required field!</span>
+                }
+              </div>
+              }
+            </div>
+
+            <div class="col-md-3">
+              <label for="loanAmount" class="form-label heading"
+                >Loan Amount:</label
+              >
+              <input
+                type="number"
+                class="form-control border-2 shadow-sm"
+                id="loanAmount"
+                name="loanAmount"
+                placeholder="Enter amount"
+                formControlName="loanAmount"
+                [class]="loanAppForm.get('loans.loanAmount')"
+              />
+            </div>
+
+            <div class="col-md-3">
+              <label for="emi" class="form-label heading">EMI:</label>
+              <input
+                type="number"
+                class="form-control border-2 shadow-sm"
+                placeholder="Enter EMI"
+                id="emi"
+                name="emi"
+                formControlName="emi"
+              />
+            </div>
+
+            <div class="col-md-3 d-flex align-items-end">
+              <button
+                type="button"
+                class="btn btn-danger text-light"
+                (click)="removeLoanBtn(i)"
+              >
+                Remove
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="d-flex justify-content-center align-items-center gap-2 mt-2">
+      <button
+        class="btn text-white"
+        style="background: linear-gradient(to right, #00c6ff, #0072ff)"
+        (click)="onSave()"
+      >
+        <!-- [disabled]="loanAppForm.invalid" -->
+        Save
+      </button>
+      <button
+        class="btn text-white"
+        style="background: linear-gradient(to right, #11998e, #38ef7d)"
+      >
+        Update
+      </button>
+      <button
+        class="btn text-white"
+        style="background: linear-gradient(to right, #ff5f3d, #ffc371)"
+      >
+        Delete
+      </button>
+    </div>
+  </form>
+</div>

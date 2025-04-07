@@ -1,0 +1,19 @@
+.heading {
+  color: #1e3c72 !important;
+  font-weight: bold;
+}
+
+.addmore {
+  background: linear-gradient(to right, #1e3c72, #2e5229);
+  color: #ffffff;
+  border: none;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.form-control::placeholder {
+  font-size: 16px;
+}
+
+i {
+  color: #1e3c72 !important;
+}

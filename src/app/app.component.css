@@ -1,0 +1,15 @@
+.active {
+  background-color: #ffffff;
+  color: #1e3c72 !important;
+  border-radius: 10px;
+  font-weight: bold;
+  transition: 3s;
+}
+
+.navbar {
+  z-index: 50 !important;
+}
+
+.routerDiv {
+  margin-top: 70px;
+}

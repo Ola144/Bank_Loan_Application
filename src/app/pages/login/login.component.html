@@ -1,0 +1,131 @@
+<section class="hero">
+  <div class="form-box">
+    <div class="button-box">
+      <div id="btn" #btn></div>
+      <button (click)="onLoginView()" type="button" class="toggle-btn">
+        Login
+      </button>
+      <button (click)="onRegisterView()" type="button" class="toggle-btn">
+        Register
+      </button>
+    </div>
+    <div class="social-icon">
+      <img src="/src/images/fb.png" alt="" />
+      <img src="/src/images/tw.png" alt="" />
+      <img src="/src/images/gp.png" alt="" />
+    </div>
+    <div #login id="login" class="input-group">
+      <form [formGroup]="loginForm">
+        <input
+          type="text"
+          placeholder="Username"
+          class="input-field"
+          required
+          formControlName="userName"
+          [class]="loginUsernameErrorM ? 'is-invalid' : ''"
+        />
+
+        @if (loginUsernameErrorM) {
+        <div class="errorMessage">
+          <span class="text-danger">*Username is a required field!</span>
+        </div>
+        }
+
+        <input
+          type="password"
+          placeholder="Password"
+          class="input-field"
+          required
+          formControlName="password"
+          [class]="loginPasswordErrorM ? 'is-invalid' : ''"
+        />
+        @if (loginPasswordErrorM) {
+        <div class="errorMessage">
+          <span class="text-danger">*Password is a required field!</span>
+        </div>
+        }
+
+        <!-- <div>
+        <input type="checkbox" id="loginCheckbox" class="check-box" />
+        <label for="loginCheckbox">Remember Password</label>
+      </div> -->
+        <button type="button" (click)="onLogin()" class="submit-btn">
+          Login
+        </button>
+      </form>
+    </div>
+
+    <div #register id="register" class="input-group">
+      <form #registerForm="ngForm">
+        <input
+          type="text"
+          placeholder="Username"
+          class="input-field"
+          required
+          name="userName"
+          [(ngModel)]="registerObj.userName"
+          [class]="registerErrorM ? 'is-invalid' : ''"
+        />
+
+        @if (registerErrorM) {
+        <div class="errorMessage">
+          <span class="text-danger">*Username is a required field!</span>
+        </div>
+        }
+        <input
+          type="email"
+          placeholder="Email"
+          class="input-field"
+          required
+          name="emailId"
+          [(ngModel)]="registerObj.emailId"
+          [class]="registerErrorM ? 'is-invalid' : ''"
+        />
+        @if (registerErrorM) {
+        <div class="errorMessage">
+          <span class="text-danger">*Email is a required field!</span>
+        </div>
+        }
+        <input
+          type="text"
+          placeholder="Full Name"
+          class="input-field"
+          required
+          name="fullName"
+          [(ngModel)]="registerObj.fullName"
+          [class]="registerErrorM ? 'is-invalid' : ''"
+        />
+
+        @if (registerErrorM) {
+        <div class="errorMessage">
+          <span class="text-danger">*Full Name is a required field!</span>
+        </div>
+        }
+        <input
+          type="password"
+          placeholder="Password"
+          class="input-field"
+          required
+          name="passwrod"
+          [(ngModel)]="registerObj.password"
+          [class]="registerErrorM ? 'is-invalid' : ''"
+        />
+
+        @if (registerErrorM) {
+        <div class="errorMessage">
+          <span class="text-danger">*Password is a required field!</span>
+        </div>
+        }
+
+        <!-- <div>
+        <input type="checkbox" id="checkbox2" class="check-box" />
+        <label for="checkbox2">I agree to the terms & conditions</label>
+      </div> -->
+
+        <button type="button" class="submit-btn" (click)="onRegister()">
+          Register
+        </button>
+      </form>
+    </div>
+  </div>
+</section>
